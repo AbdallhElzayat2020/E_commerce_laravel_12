@@ -11,6 +11,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     });
 
     Route::get('test', function () {
-        return view('welcome');
+        return view('dashboard.home');
     })->name('test');
 });
