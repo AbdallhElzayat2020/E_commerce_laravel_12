@@ -8,7 +8,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
 
     Route::get('/', function () {
         return view('welcome');
-    });
+    })->name('home');
 
     Route::get('test', function () {
         return view('dashboard.home');

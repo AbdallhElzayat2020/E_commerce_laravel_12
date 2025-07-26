@@ -14,6 +14,7 @@
 @yield('content')
 <!-- //////////////////////////////////////-->
 @include('layouts.dashboard._footer')
+@include('layouts.dashboard.modal')
 @include('layouts.dashboard._scripts')
 </body>
 </html>
