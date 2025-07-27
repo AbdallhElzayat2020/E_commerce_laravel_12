@@ -7,6 +7,7 @@ use App\Http\Requests\Dashboard\ForgetPasswordRequest;
 use App\Http\Requests\Dashboard\VerifyOtpRequest;
 use App\Models\Admin;
 use App\Notifications\Dashboard\SendOtpNotification;
+use App\Services\Auth\ForgetPasswordService;
 use Ichtrojan\Otp\Otp;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,12 @@ class ForgetPasswordController extends Controller
 
     public $otp_code;
 
-    public function __construct()
+    protected ForgetPasswordService $forgetPasswordService;
+
+    public function __construct(ForgetPasswordService $forgetPasswordService)
     {
         $this->otp_code = new Otp();
+        $this->forgetPasswordService = $forgetPasswordService;
     }
 
     public function showForgetPasswordForm()
@@ -27,12 +31,10 @@ class ForgetPasswordController extends Controller
 
     public function sendEmailResetLink(ForgetPasswordRequest $request)
     {
-        $admin = Admin::whereEmail($request->email)->first();
+        $admin = $this->forgetPasswordService->sendOtp($request->email);
         if (!$admin) {
-            return back()->withErrors(['email' => __('auth.not_match')]);
+            return redirect()->back()->withErrors(['email' => 'this email does not exist']);
         }
-
-        $admin->notify(new SendOtpNotification());
 
         return to_route('dashboard.password.show-otp-form', ['email' => $request->email])
             ->withErrors('success', __('auth.otp_msg'));
@@ -45,7 +47,7 @@ class ForgetPasswordController extends Controller
 
     public function verifyOtpForm(VerifyOtpRequest $request)
     {
-        $otp = $this->otp_code->validate($request->email, $request->otp);
+        $otp = $this->forgetPasswordService->verifyOtpForm($request->email, $request->otp);
 
         if (!$otp->status) {
             return redirect()->back()->withErrors(['error' => 'Invalid OTP, please try again.']);
