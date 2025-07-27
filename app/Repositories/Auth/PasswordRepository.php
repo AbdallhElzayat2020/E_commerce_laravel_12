@@ -5,7 +5,7 @@ namespace App\Repositories\Auth;
 use App\Models\Admin;
 use Ichtrojan\Otp\Otp;
 
-class ForgetPasswordRepository
+class PasswordRepository
 {
     public $otp_code;
 
@@ -14,7 +14,7 @@ class ForgetPasswordRepository
         $this->otp_code = new Otp();
     }
 
-    public function sendOtp($email)
+    public function getAdminByEmail($email)
     {
         $admin = Admin::whereEmail($email)->first();
         return $admin;
@@ -24,5 +24,15 @@ class ForgetPasswordRepository
     {
         $otp = $this->otp_code->validate($email, $otp);
         return $otp;
+    }
+
+
+    public function resetPassword($email, $password)
+    {
+        $admin = self::getAdminByEmail($email);
+        $admin = $admin->update([
+            'password' => bcrypt($password),
+        ]);
+        return $admin;
     }
 }
