@@ -69,7 +69,7 @@
             // option of the $.ajax upload requests:
             dataType: 'json',
 
-            // Error and info messages:
+            // Error and info includes:
             messages: {
                 unknownError: 'Unknown error'
             },

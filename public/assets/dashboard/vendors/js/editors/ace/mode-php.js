@@ -2488,7 +2488,7 @@ var functionMap = {
     ],
     "bind_textdomain_codeset": [
         "string bind_textdomain_codeset (string domain, string codeset)",
-        "Specify the character encoding in which the messages from the DOMAIN message catalog will be returned."
+        "Specify the character encoding in which the includes from the DOMAIN message catalog will be returned."
     ],
     "bindec": [
         "int bindec(string binary_number)",
@@ -2740,7 +2740,7 @@ var functionMap = {
     ],
     "com_message_pump": [
         "bool com_message_pump([int timeoutms])",
-        "Process COM messages, sleeping for up to timeoutms milliseconds"
+        "Process COM includes, sleeping for up to timeoutms milliseconds"
     ],
     "com_print_typeinfo": [
         "bool com_print_typeinfo(object comobject | string typelib, string dispinterface, bool wantsink)",
@@ -5484,7 +5484,7 @@ var functionMap = {
     ],
     "imap_clearflag_full": [
         "bool imap_clearflag_full(resource stream_id, string sequence, string flag [, int options])",
-        "Clears flags on messages"
+        "Clears flags on includes"
     ],
     "imap_close": [
         "bool imap_close(resource stream_id [, int options])",
@@ -5508,7 +5508,7 @@ var functionMap = {
     ],
     "imap_expunge": [
         "bool imap_expunge(resource stream_id)",
-        "Permanently delete all messages marked for deletion"
+        "Permanently delete all includes marked for deletion"
     ],
     "imap_fetch_overview": [
         "array imap_fetch_overview(resource stream_id, string sequence [, int options])",
@@ -5556,7 +5556,7 @@ var functionMap = {
     ],
     "imap_headers": [
         "array imap_headers(resource stream_id)",
-        "Returns headers for all messages in a mailbox"
+        "Returns headers for all includes in a mailbox"
     ],
     "imap_last_error": [
         "string imap_last_error(void)",
@@ -5608,11 +5608,11 @@ var functionMap = {
     ],
     "imap_num_msg": [
         "int imap_num_msg(resource stream_id)",
-        "Gives the number of messages in the current mailbox"
+        "Gives the number of includes in the current mailbox"
     ],
     "imap_num_recent": [
         "int imap_num_recent(resource stream_id)",
-        "Gives the number of recent messages in current mailbox"
+        "Gives the number of recent includes in current mailbox"
     ],
     "imap_open": [
         "resource imap_open(string mailbox, string user, string password [, int options [, int n_retries]])",
@@ -5652,7 +5652,7 @@ var functionMap = {
     ],
     "imap_search": [
         "array imap_search(resource stream_id, string criteria [, int options [, string charset]])",
-        "Return a list of messages matching the given criteria"
+        "Return a list of includes matching the given criteria"
     ],
     "imap_set_quota": [
         "bool imap_set_quota(resource stream_id, string qroot, int mailbox_size)",
@@ -5664,11 +5664,11 @@ var functionMap = {
     ],
     "imap_setflag_full": [
         "bool imap_setflag_full(resource stream_id, string sequence, string flag [, int options])",
-        "Sets flags on messages"
+        "Sets flags on includes"
     ],
     "imap_sort": [
         "array imap_sort(resource stream_id, int criteria, int reverse [, int options [, string search_criteria [, string charset]]])",
-        "Sort an array of message headers, optionally including only messages that meet specified criteria."
+        "Sort an array of message headers, optionally including only includes that meet specified criteria."
     ],
     "imap_status": [
         "object imap_status(resource stream_id, string mailbox, int options)",
@@ -8184,7 +8184,7 @@ var functionMap = {
     ],
     "openssl_error_string": [
         "mixed openssl_error_string(void)",
-        "Returns a description of the last error, and alters the index of the error messages. Returns false when the are no more messages"
+        "Returns a description of the last error, and alters the index of the error includes. Returns false when the are no more includes"
     ],
     "openssl_get_cipher_methods": [
         "array openssl_get_cipher_methods([bool aliases = false])",

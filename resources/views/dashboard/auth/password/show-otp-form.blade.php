@@ -18,7 +18,7 @@
 
                                 </div>
                                 <div class="card-content">
-                                    @include('layouts.dashboard.messages.error')
+                                    @include('layouts.dashboard.includes.error')
                                     <div class="card-body">
                                         <form class="form-horizontal" action="{{ route('dashboard.password.verify-otp') }}" method="post">
                                             @csrf

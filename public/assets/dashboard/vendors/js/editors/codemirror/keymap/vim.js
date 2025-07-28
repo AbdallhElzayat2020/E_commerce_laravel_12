@@ -4533,7 +4533,7 @@
           stream.eatSpace();
 
           // Record the streams position at the beginning of the loop for use
-          // in error messages.
+          // in error includes.
           var count = stream.pos;
 
           if (!stream.match(/[a-zA-Z]/, false)) {

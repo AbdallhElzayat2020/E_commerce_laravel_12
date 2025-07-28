@@ -68,7 +68,7 @@
             // has to be overriden for maxNumberOfFiles validation:
             getNumberOfFiles: $.noop,
 
-            // Error and info messages:
+            // Error and info includes:
             messages: {
                 maxNumberOfFiles: 'Maximum number of files exceeded',
                 acceptFileTypes: 'File type not allowed',

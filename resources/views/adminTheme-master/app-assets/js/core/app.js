@@ -103,7 +103,7 @@
             $(this).closest('.card').toggleClass('card-fullscreen');
         });
 
-        //  Notifications & messages scrollable
+        //  Notifications & includes scrollable
         if($('.scrollable-container').length > 0){
             $('.scrollable-container').perfectScrollbar({
                 theme:"dark"

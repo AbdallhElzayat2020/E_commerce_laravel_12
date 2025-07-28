@@ -159,7 +159,7 @@ $(document).ready(function(){
     });
 
 
-    // Multiple messages
+    // Multiple includes
     $('.block-multiple-msgs').on('click', function() {
         var message = $('.multiple-msgs');
         var block_ele = $(this).closest('.card');

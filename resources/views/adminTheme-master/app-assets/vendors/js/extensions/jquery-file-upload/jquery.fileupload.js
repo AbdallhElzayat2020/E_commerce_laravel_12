@@ -166,7 +166,7 @@
             // By default, uploads are started automatically when adding files:
             autoUpload: true,
 
-            // Error and info messages:
+            // Error and info includes:
             messages: {
                 uploadedBytes: 'Uploaded bytes exceed file size'
             },

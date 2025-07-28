@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Dashboard\Auth\AuthController;
 use App\Http\Controllers\Dashboard\Auth\ForgetPasswordController;
+use App\Http\Controllers\Dashboard\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
@@ -51,6 +52,11 @@ Route::group(
         #################################### Welcome Home Routes ####################################
         Route::get('welcome', [HomeController::class, 'welcome'])->name('welcome');
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+        #################################### Roles Routes ####################################
+        Route::resource('roles', RoleController::class);
+
+
     });
 
 });
