@@ -4,13 +4,18 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\RoleRequest;
+use App\Services\Dashboard\RoleService;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public RoleService $roleService;
+
+    public function __construct(RoleService $roleService)
+    {
+        $this->roleService = $roleService;
+    }
+
     public function index()
     {
         return view('dashboard.roles.index');
@@ -29,7 +34,12 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
-        return $request;
+        $role = $this->roleService->createRole($request);
+        if (!$role->save()) {
+            return redirect()->back()->with('error', __('messages.error'));
+        }
+        return redirect()->route('dashboard.roles.index')->with('success', __('messages.success'));
+
     }
 
     /**
