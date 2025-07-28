@@ -151,7 +151,7 @@ return [
     'starts_with' => ':attribute يجب أن يبدأ بأحد: :values.',
     'string' => ':attribute يجب أن يكون نص.',
     'timezone' => ':attribute يجب أن يكون منطقة زمنية صالحة.',
-    'unique' => ':attribute تم أخذه بالفعل.',
+    'unique' => ':attribute الاسم مسجل مسبقاً.',
     'uploaded' => ':attribute فشل في الرفع.',
     'uppercase' => ':attribute يجب أن يكون أحرف كبيرة.',
     'url' => ':attribute التنسيق غير صالح.',
