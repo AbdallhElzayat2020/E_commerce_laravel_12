@@ -38,7 +38,7 @@ class AuthController extends Controller implements HasMiddleware
         $remember = $request->remember;
 
         if ($this->authService->login($credentials, 'admin', $remember)) {
-            flash()->success(__('auth.login_success'));
+            flash()->success(__('auth.success_login'));
             return redirect()->intended(route('dashboard.welcome'));
         }
         return redirect()->back()->withErrors(['email' => __('auth.not_match')]);

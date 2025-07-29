@@ -8,7 +8,7 @@ class RoleRepository
 {
     public function createRole($request)
     {
-        $role = Role::create([
+        return Role::create([
             'role' => [
                 'ar' => $request->role['ar'],
                 'en' => $request->role['en'],
@@ -16,8 +16,6 @@ class RoleRepository
 
             'permissions' => json_encode($request->permissions)
         ]);
-
-        return $role;
 
     }
 }

@@ -14,6 +14,7 @@ Route::group(
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
     ], function () {
 
+
     #################################### Auth Routes ####################################
     Route::controller(AuthController::class)->group(function () {
 
@@ -21,7 +22,6 @@ Route::group(
         Route::post('login', 'handleLogin')->name('handle-login');
 
     });
-
 
     /*   Reset Password With OTP  */
     Route::prefix('password')->name('password.')->middleware('guest:admin')->group(function () {
@@ -43,6 +43,7 @@ Route::group(
             Route::post('reset-password', 'resetPassword')->name('reset-password.submit');
         });
 
+
     });
 
     #################################### Protected Routes ####################################
@@ -55,7 +56,6 @@ Route::group(
 
         #################################### Roles Routes ####################################
         Route::resource('roles', RoleController::class);
-
 
     });
 

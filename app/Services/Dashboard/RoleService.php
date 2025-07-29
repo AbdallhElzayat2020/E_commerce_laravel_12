@@ -15,7 +15,6 @@ class RoleService
 
     public function createRole($request)
     {
-        $role = $this->roleRepository->createRole($request);
-        return $role;
+        return $this->roleRepository->createRole($request);
     }
 }
