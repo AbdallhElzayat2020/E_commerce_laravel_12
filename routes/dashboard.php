@@ -55,7 +55,10 @@ Route::group(
         Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
         #################################### Roles Routes ####################################
-        Route::resource('roles', RoleController::class);
+        Route::group(['middleware' => 'can:roles'], function () {
+
+            Route::resource('roles', RoleController::class);
+        });
 
     });
 

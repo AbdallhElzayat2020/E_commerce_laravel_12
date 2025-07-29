@@ -41,23 +41,21 @@ class RoleController extends Controller
             return redirect()->back()->with('error', __('messages.error'));
         }
         return redirect()->route('dashboard.roles.index')->with('success', __('messages.success'));
-
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        // Prevent editing of the Super Admin role (ID = 1)
+        if ($id == 1) {
+            return redirect()->route('dashboard.roles.index')->with('error', __('dashboard_roles.cannot_edit_super_admin'));
+        }
+
+        $role = Role::findOrFail($id);
+        return view('dashboard.roles.edit', compact('role'));
     }
 
     /**
@@ -65,7 +63,16 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Prevent updating of Super Admin role (ID = 1)
+        if ($id == 1) {
+            return redirect()->route('dashboard.roles.index')->with('error', __('dashboard_roles.cannot_edit_super_admin'));
+        }
+
+        $role = $this->roleService->updateRole($request, $id);
+        if (!$role->save()) {
+            return redirect()->back()->with('error', __('messages.error'));
+        }
+        return redirect()->route('dashboard.roles.index')->with('success', __('messages.success'));
     }
 
     /**
@@ -73,6 +80,24 @@ class RoleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Prevent deletion of Super Admin role (ID = 1)
+        if ($id == 1) {
+            return redirect()->back()->with('error', __('dashboard_roles.cannot_delete_super_admin'));
+        }
+
+        $role = Role::findOrFail($id);
+
+        // Check if role is being used by any admin
+        if ($role->admins()->count() > 0) {
+            return redirect()->back()->with('error', 'لا يمكن حذف الدور لأنه مستخدم من قبل مشرفين');
+        }
+
+        $deleted = $this->roleService->deleteRole($id);
+
+        if (!$deleted) {
+            return redirect()->back()->with('error', __('messages.error'));
+        }
+
+        return redirect()->route('dashboard.roles.index')->with('success', __('messages.success'));
     }
 }

@@ -17,4 +17,14 @@ class RoleService
     {
         return $this->roleRepository->createRole($request);
     }
+
+    public function updateRole($request, $id)
+    {
+        return $this->roleRepository->updateRole($id, $request);
+    }
+
+    public function deleteRole($id)
+    {
+        return $this->roleRepository->deleteRole($id);
+    }
 }
