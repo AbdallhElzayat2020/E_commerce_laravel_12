@@ -23,7 +23,7 @@ class RoleSeeder extends Seeder
                 'en' => 'Super Admin',
                 'ar' => 'المشرف العام',
             ],
-            'permissions' => json_encode($permissions)
+            'permissions' => $permissions
         ]);
     }
 }

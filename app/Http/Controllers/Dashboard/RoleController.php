@@ -19,7 +19,7 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::all();
+      $roles=$this->roleService->getRoles();
         return view('dashboard.roles.index', compact('roles'));
     }
 
@@ -69,6 +69,7 @@ class RoleController extends Controller
         }
 
         $role = $this->roleService->updateRole($request, $id);
+
         if (!$role->save()) {
             return redirect()->back()->with('error', __('messages.error'));
         }

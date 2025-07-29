@@ -25,6 +25,10 @@ return [
     'cancel' => 'Cancel',
     'cannot_edit_super_admin' => 'Cannot edit Super Admin role',
     'cannot_delete_super_admin' => 'Cannot delete Super Admin role',
+    'no_permissions' => 'No Permissions',
+    'permission_count' => 'permission',
+    'permission_count_plural' => 'permissions',
+    'permissions_count_text' => 'Permissions Count',
 
 
 ];

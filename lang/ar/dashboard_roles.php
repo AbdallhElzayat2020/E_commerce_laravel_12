@@ -22,4 +22,8 @@ return [
     'cancel' => 'إلغاء',
     'cannot_edit_super_admin' => 'لا يمكن تعديل دور المشرف العام',
     'cannot_delete_super_admin' => 'لا يمكن حذف دور المشرف العام',
+    'no_permissions' => 'لا توجد صلاحيات',
+    'permission_count' => 'صلاحية',
+    'permission_count_plural' => 'صلاحيات',
+    'permissions_count_text' => 'عدد الصلاحيات',
 ];

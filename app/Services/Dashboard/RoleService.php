@@ -13,6 +13,11 @@ class RoleService
         $this->roleRepository = $roleRepository;
     }
 
+    public function getRoles()
+    {
+        return $this->roleRepository->getRoles();
+    }
+
     public function createRole($request)
     {
         return $this->roleRepository->createRole($request);

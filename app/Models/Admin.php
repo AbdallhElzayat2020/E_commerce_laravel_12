@@ -75,11 +75,7 @@ class Admin extends Authenticatable
             return false;
         }
 
-        // Convert permissions to array if it's a string
         $permissions = $role->permissions;
-        if (is_string($permissions)) {
-            $permissions = json_decode($permissions, true);
-        }
 
         if (!is_array($permissions)) {
             return false;

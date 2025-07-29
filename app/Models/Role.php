@@ -24,24 +24,6 @@ class Role extends Model
     public array $translatable = ['role'];
 
     /**
-     * Get permissions as array
-     */
-    public function getPermissionsArrayAttribute()
-    {
-        $permissions = $this->permissions;
-
-        if (is_string($permissions)) {
-            return json_decode($permissions, true) ?? [];
-        }
-
-        if (is_array($permissions)) {
-            return $permissions;
-        }
-
-        return [];
-    }
-
-    /**
      * Get the admins for this role
      */
     public function admins(): HasMany

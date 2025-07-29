@@ -132,7 +132,7 @@
                                                                                         name="permissions[]"
                                                                                         value="{{ $key }}"
                                                                                         onchange="togglePermission(this)"
-                                                                                        {{ in_array($key, old('permissions', $role->permissions_array)) ? 'checked' : '' }}>
+                                                                                        {{ in_array($key, old('permissions', $role->permissions)) ? 'checked' : '' }}>
 
                                                                                     <label class="custom-control-label"
                                                                                         for="permissions.{{ $key }}"

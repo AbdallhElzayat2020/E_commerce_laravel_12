@@ -6,6 +6,13 @@ use App\Models\Role;
 
 class RoleRepository
 {
+
+    public function getRoles()
+    {
+        return Role::select('id', 'role', 'permissions')->paginate(9)
+            ->withQueryString();
+    }
+
     public function createRole($request)
     {
         return Role::create([
@@ -14,7 +21,7 @@ class RoleRepository
                 'en' => $request->role['en'],
             ],
 
-            'permissions' => json_encode($request->permissions)
+            'permissions' => $request->permissions
         ]);
     }
 
@@ -25,7 +32,7 @@ class RoleRepository
             'ar' => $request->role['ar'],
             'en' => $request->role['en'],
         ];
-        $role->permissions = json_encode($request->permissions);
+        $role->permissions = $request->permissions;
 
         return $role;
     }
