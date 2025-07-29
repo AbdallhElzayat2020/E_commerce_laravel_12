@@ -19,6 +19,7 @@ return [
     'delete' => 'Delete',
     'edit' => 'Edit',
     'name' => 'Role Name',
+    'no_roles_found' => 'No Roles Found',
     'created_at' => 'Created At',
     'confirm_delete' => 'Confirm Delete',
     'delete_warning' => 'Are you sure you want to delete this role? This action cannot be undone.',

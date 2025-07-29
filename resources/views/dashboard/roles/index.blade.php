@@ -75,7 +75,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach ($roles as $index => $role)
+                                            @forelse ($roles as $index => $role)
                                                 <tr class="{{ $role->id === 1 ? 'table-warning' : '' }}">
                                                     <th scope="row">{{ $index + 1 }}</th>
                                                     <td>
@@ -129,7 +129,16 @@
                                                 @if ($role->id !== 1)
                                                     @include('dashboard.roles.delete')
                                                 @endif
-                                            @endforeach
+                                            @empty
+                                                <tr>
+                                                    <td colspan="3" class="text-center">
+                                                        <div class="alert alert-warning">
+                                                            <i class="la la-exclamation-triangle"></i>
+                                                            {{ __('dashboard_roles.no_roles_found') }}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforelse
 
                                             </tbody>
                                         </table>

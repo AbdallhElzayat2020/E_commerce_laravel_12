@@ -11,6 +11,7 @@ return [
     'role_name_arabic' => 'اسم الدور بالعربية',
     'save' => 'حفظ',
     'settings' => 'الاعدادات',
+    'no_roles_found' => 'لا توجد ادوار',
     'actions' => 'العمليات',
     'name' => 'اسم الصلاحية',
     'edit' => 'تعديل',

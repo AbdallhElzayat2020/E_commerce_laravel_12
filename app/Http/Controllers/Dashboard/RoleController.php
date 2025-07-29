@@ -19,7 +19,7 @@ class RoleController extends Controller
 
     public function index()
     {
-      $roles=$this->roleService->getRoles();
+        $roles = $this->roleService->getRoles();
         return view('dashboard.roles.index', compact('roles'));
     }
 
@@ -90,7 +90,7 @@ class RoleController extends Controller
 
         // Check if role is being used by any admin
         if ($role->admins()->count() > 0) {
-            return redirect()->back()->with('error', 'لا يمكن حذف الدور لأنه مستخدم من قبل مشرفين');
+            return redirect()->back()->with('error', __('dashboard_roles.cannot_delete_super_admin'));
         }
 
         $deleted = $this->roleService->deleteRole($id);
