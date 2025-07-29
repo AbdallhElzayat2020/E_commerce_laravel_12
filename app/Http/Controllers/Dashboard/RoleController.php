@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Dashboard\RoleRequest;
+use App\Models\Role;
 use App\Services\Dashboard\RoleService;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class RoleController extends Controller
 
     public function index()
     {
-        return view('dashboard.roles.index');
+        $roles = Role::all();
+        return view('dashboard.roles.index', compact('roles'));
     }
 
     /**
@@ -26,7 +28,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.roles.create');
     }
 
     /**

@@ -122,7 +122,7 @@
                                                                                     <label class="custom-control-label"
                                                                                         for="permissions.{{ $key }}"
                                                                                         style="font-weight: 600; color: #495057;">
-                                                                                        {{ $value }}
+                                                                                        {{ __('permissions.' . $key) }}
                                                                                     </label>
                                                                                 </div>
                                                                             </div>

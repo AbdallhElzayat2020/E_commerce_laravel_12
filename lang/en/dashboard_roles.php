@@ -13,5 +13,6 @@ return [
 
     'roles' => 'Roles',
     'save' => 'Save',
+    'settings' => 'Settings',
 
 ];

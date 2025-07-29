@@ -23,7 +23,7 @@ class RoleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'role.ar' => ['required', 'string', 'max:255', UniqueTranslationRule::for('roles')->ignore($this->route('role'))],
+            'role.ar' => ['required', 'string', 'max:100', UniqueTranslationRule::for('roles')->ignore($this->route('role'))],
             'role.en' => ['required', 'string', 'max:255', UniqueTranslationRule::for('roles')->ignore($this->route('role'))],
             'permissions' => ['required', 'array', 'min:1'],
         ];
