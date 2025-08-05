@@ -3,66 +3,95 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\AdminRequest;
+use App\Models\Admin;
+use App\Services\Dashboard\AdminService;
+use App\Services\Dashboard\RoleService;
 use Illuminate\Http\Request;
 
 class AdminsController extends Controller
 {
 
-    public function changeStatus()
-    {
+    protected $adminService, $RoleServices;
 
+    public function __construct(AdminService $adminService, RoleService $RoleServices)
+    {
+        $this->adminService = $adminService;
+        $this->RoleServices = $RoleServices;
     }
+
 
     public function index()
     {
-
+        $admins = $this->adminService->getAdmins();
+        return view('dashboard.admins.index', compact('admins'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+        $roles = $this->RoleServices->getRoles();
+        return view('dashboard.admins.create', compact('roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(AdminRequest $request)
     {
-        //
+        $data = $request->only(['name', 'email', 'password', 'role_id', 'status']);
+        $admin = $this->adminService->storeAdmin($data);
+        if (!$admin) {
+            return redirect()->back()->with('error', __('messages.error'));
+        }
+        return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
+
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
-        //
+        $admin = $this->adminService->getAdmin($id);
+        if (!$admin) {
+            return redirect()->back()->with('error', __('messages.not_found'));
+        }
+        return view('dashboard.admins.show', compact('admin'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
-        //
+        $admin = $this->adminService->getAdmin($id);
+        if (!$admin) {
+            return redirect()->back()->with('error', __('messages.not_found'));
+        }
+
+        $roles = $this->RoleServices->getRoles();
+        return view('dashboard.admins.edit', compact('admin', 'roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->only(['name', 'email', 'password', 'role_id', 'status']);
+
+        $admin = $this->adminService->updateAdmin($data, $id);
+
+        if (!$admin) {
+            return redirect()->back()->with('error', __('messages.error'));
+        }
+
+        return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
-        //
+        $admin = $this->adminService->destroy($id);
+        if (!$admin) {
+            return redirect()->back()->with('error', __('messages.error'));
+        }
+        return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
+    }
+
+    public function changeStatus()
+    {
+
     }
 }

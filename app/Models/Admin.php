@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -84,5 +86,14 @@ class Admin extends Authenticatable
         }
 
         return false;
+    }
+
+
+    /*  #######################  Scopes  #######################*/
+
+    #[Scope]
+    protected function active(Builder $query): Builder
+    {
+        return $query->whereStatus('active');
     }
 }
