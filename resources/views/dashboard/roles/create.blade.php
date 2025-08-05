@@ -71,6 +71,7 @@
 
                                         {{--  message error   --}}
                                         @include('layouts.dashboard.includes.validation-errors')
+                                        {{--  message error   --}}
 
                                         <form class="form" action="{{ route('dashboard.roles.store') }}" method="POST">
                                             @csrf
@@ -122,14 +123,11 @@
                                                                             <div class="permission-item"
                                                                                  style="background: #fff; border-radius: 8px; padding: 15px; border: 2px solid #e9ecef; transition: all 0.3s ease;">
                                                                                 <div class="custom-control custom-checkbox">
-                                                                                    <input type="checkbox"
-                                                                                           class="custom-control-input"
+                                                                                    <input type="checkbox" class="custom-control-input"
                                                                                            id="permissions.{{ $key }}"
-                                                                                           name="permissions[]"
-                                                                                           value="{{ $key }}"
+                                                                                           name="permissions[]" value="{{ $key }}"
                                                                                            onchange="togglePermission(this)"
-                                                                                            {{ in_array($key, old('permissions', [])) ? 'checked' : '' }}>
-
+                                                                                        {{ in_array($key, old('permissions', [])) ? 'checked' : '' }}>
                                                                                     <label class="custom-control-label"
                                                                                            for="permissions.{{ $key }}"
                                                                                            style="font-weight: 600; color: #495057;">

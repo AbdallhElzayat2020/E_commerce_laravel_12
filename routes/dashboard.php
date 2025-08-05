@@ -58,6 +58,7 @@ Route::group(
         Route::group(['middleware' => 'can:roles'], function () {
 
             Route::resource('roles', RoleController::class);
+
         });
 
     });

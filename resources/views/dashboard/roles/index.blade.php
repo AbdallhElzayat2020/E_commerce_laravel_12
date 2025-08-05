@@ -1,5 +1,5 @@
 @extends('layouts.dashboard.app')
-@section('title', __('Roles'))
+@section('title', __('dashboard_roles.roles'))
 @section('content')
     <div class="app-content content">
         <div class="content-wrapper">
@@ -85,7 +85,7 @@
                                                                    style="font-size: 18px;" title="Super Admin"></i>
                                                             @endif
                                                             <span
-                                                                    class="font-weight-bold">{{ $role->getTranslation('role', app()->getLocale()) }}</span>
+                                                                class="font-weight-bold">{{ $role->getTranslation('role', app()->getLocale()) }}</span>
                                                             @if ($role->id === 1)
                                                                 <span class="badge badge-warning ml-2">Super
                                                                         Admin</span>

@@ -34,7 +34,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(RoleRequest $request)
+    public function store(RoleRequest $request): \Illuminate\Http\RedirectResponse
     {
         $role = $this->roleService->createRole($request);
         if (!$role->save()) {
@@ -49,11 +49,6 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        // Prevent editing of the Super Admin role (ID = 1)
-        if ($id == 1) {
-            return redirect()->route('dashboard.roles.index')->with('error', __('dashboard_roles.cannot_edit_super_admin'));
-        }
-
         $role = Role::findOrFail($id);
         return view('dashboard.roles.edit', compact('role'));
     }
@@ -64,7 +59,7 @@ class RoleController extends Controller
     public function update(Request $request, string $id)
     {
         // Prevent updating of Super Admin role (ID = 1)
-        if ($id == 1) {
+        if ($id === 1) {
             return redirect()->route('dashboard.roles.index')->with('error', __('dashboard_roles.cannot_edit_super_admin'));
         }
 
