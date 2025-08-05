@@ -1,6 +1,12 @@
 <?php
 
 return [
+
+    'admins' => 'Manage Admins',
+    'create_admin' => 'Create Admin',
+    'edit_admin' => 'Edit Admin',
+    'delete_admin' => 'Delete Admin',
+
     // Categories Management
     'categories' => 'Manage Categories',
     'create_category' => 'Create Category',

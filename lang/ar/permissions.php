@@ -1,6 +1,13 @@
 <?php
 
 return [
+    // Admins Management
+    'admins' => 'إدارة المشرفين',
+    'create_admin' => 'إنشاء مشرف',
+    'edit_admin' => 'تعديل المشرف',
+    'delete_admin' => 'حذف المشرف',
+
+
     // Categories Management
     'categories' => 'إدارة التصنيفات',
     'create_category' => 'إنشاء تصنيف',
