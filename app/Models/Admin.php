@@ -77,10 +77,6 @@ class Admin extends Authenticatable
 
         $permissions = $role->permissions;
 
-        if (!is_array($permissions)) {
-            return false;
-        }
-
         foreach ($permissions as $permission) {
             if ($config_permission == $permission) {
                 return true;

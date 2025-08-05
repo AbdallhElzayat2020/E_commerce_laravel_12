@@ -23,6 +23,12 @@ class AppServiceProvider extends ServiceProvider
     {
 
         Paginator::useBootstrap();
+
+        /* Define Gates for permissions
+         * This will allow you to use the 'can' middleware in your routes
+         * and check permissions in your controllers.
+         */
+
         foreach (config('permissions') as $config_permission => $value) {
             Gate::define($config_permission, function ($auth) use ($config_permission) {
                 return $auth->hasAccess($config_permission);
