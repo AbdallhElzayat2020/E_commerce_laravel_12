@@ -10,13 +10,12 @@ class AdminRepository
     {
         return Admin::select('id', 'name', 'email', 'role_id', 'status')
             ->with('role')
-            ->active()
-            ->paginate(7);
+            ->paginate(9)->withQueryString();
     }
 
     public function getAdmin($id)
     {
-        return Admin::findOrFail($id);
+        return Admin::find($id);
     }
 
     public function storeAdmin($data)

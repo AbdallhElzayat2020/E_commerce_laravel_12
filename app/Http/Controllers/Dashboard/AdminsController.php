@@ -81,7 +81,7 @@ class AdminsController extends Controller
     }
 
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $admin = $this->adminService->destroy($id);
         if (!$admin) {
@@ -90,8 +90,21 @@ class AdminsController extends Controller
         return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
     }
 
-    public function changeStatus()
+    public function changeStatus($id)
     {
-
+        $admin = $this->adminService->getAdmin($id);
+        if (!$admin) {
+            abort(404, __('MESSAGES.NOT_FOUND'));
+        }
+        if ($admin->status == 'active') {
+            $admin->update([
+                'status' => 'inactive',
+            ]);
+            return redirect()->back()->with('success', 'blocked successfully');
+        }
+        $admin->update([
+            'status' => 'active',
+        ]);
+        return redirect()->back()->with('success', 'Activated successfully');
     }
 }

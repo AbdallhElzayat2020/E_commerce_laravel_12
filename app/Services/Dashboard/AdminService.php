@@ -20,7 +20,7 @@ class AdminService
 
     public function getAdmin($id)
     {
-        $admin = $this->adminRepository->getAdmin();
+        $admin = $this->adminRepository->getAdmin($id);
         if (!$admin) {
             abort(404, 'Admin not found');
         }
@@ -54,9 +54,7 @@ class AdminService
     public function destroy($id)
     {
         $admin = $this->getAdmin($id);
-        if (!$admin->delete()) {
-            return false;
-        }
+
         return $this->adminRepository->destroy($admin);
     }
 

@@ -62,7 +62,8 @@ Route::group(
         #################################### Admins Routes ####################################
         Route::group(['middleware' => 'can:admins'], function () {
             Route::resource('admins', AdminsController::class);
-            Route::post('admins/{id}/change-status', [AdminsController::class, 'changeStatus'])->name('admins.change-status');
+            Route::post('admins/block/status/{id}', [AdminsController::class, 'changeStatus'])->name('admins.change-status');
+
         });
 
     });
