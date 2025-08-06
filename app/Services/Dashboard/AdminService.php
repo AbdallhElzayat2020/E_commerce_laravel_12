@@ -58,13 +58,12 @@ class AdminService
         return $this->adminRepository->destroy($admin);
     }
 
-    public function changeStatus($id, $status)
+    public function changeStatus($id)
     {
         $admin = $this->adminRepository->getAdmin($id);
         if (!$admin) {
             abort(404, 'Admin not found');
         }
-        $status = $this->adminRepository->changeStatus($admin, $status
-        );
+        $status = $this->adminRepository->changeStatus($admin);
     }
 }
