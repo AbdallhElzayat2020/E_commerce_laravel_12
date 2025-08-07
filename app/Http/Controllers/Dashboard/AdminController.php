@@ -77,7 +77,7 @@ class AdminController extends Controller
         $data = $request->only(['name', 'email', 'role_id', 'status']);
 
         // Hash and include password only if provided
-        if ($request->filled('password')) {
+        if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }
 
