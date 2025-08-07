@@ -15,4 +15,9 @@ class Country extends Model
     public array $translatable = ['name'];
 
     public $timestamps = false;
+
+    public function governorates()
+    {
+        return $this->hasMany(Governorate::class, 'country_id');
+    }
 }
