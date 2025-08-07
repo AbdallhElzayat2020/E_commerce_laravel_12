@@ -12,6 +12,7 @@ return [
     'no_results' => 'No results found.',
     'yes' => 'Yes',
     'no' => 'No',
+    'save' => 'Save',
     'cancel' => 'Cancel',
 
 ];

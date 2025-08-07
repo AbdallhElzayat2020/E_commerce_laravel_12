@@ -31,21 +31,6 @@
                         </div>
                     </div>
                 </div>
-                {{--   Dropdown   --}}
-                <div class="content-header-right col-md-6 col-12">
-                    <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button"
-                                class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2"
-                                id="btnGroupDrop3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="la la-cog"></i> {{__('dashboard_roles.settings')}}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-                            <a class="dropdown-item" href="{{ route('dashboard.roles.index') }}">
-                                <i class="la la-list"></i> {{__('dashboard_roles.roles')}}
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="content-body">

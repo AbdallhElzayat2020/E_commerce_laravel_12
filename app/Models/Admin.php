@@ -54,13 +54,6 @@ class Admin extends Authenticatable
     }
 
 
-    /**
-     * The attributes that should be translatable.
-     *
-     * @var array<string>
-     */
-
-
     /* ########################## RelationShips ########################## */
 
     public function role(): BelongsTo

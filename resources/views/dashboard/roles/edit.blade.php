@@ -31,21 +31,6 @@
                         </div>
                     </div>
                 </div>
-                {{--   Dropdown   --}}
-                <div class="content-header-right col-md-6 col-12">
-                    <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-                        <button type="button"
-                            class="btn btn-info round dropdown-toggle dropdown-menu-right box-shadow-2 px-2"
-                            id="btnGroupDrop3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="la la-cog"></i> {{ __('dashboard_roles.settings') }}
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop3">
-                            <a class="dropdown-item" href="{{ route('dashboard.roles.index') }}">
-                                <i class="la la-list"></i> {{ __('dashboard_roles.roles') }}
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="content-body">
@@ -73,7 +58,7 @@
                                         @include('layouts.dashboard.includes.validation-errors')
 
                                         <form class="form" action="{{ route('dashboard.roles.update', $role->id) }}"
-                                            method="POST">
+                                              method="POST">
                                             @csrf
                                             @method('PUT')
                                             <div class="form-body">
@@ -87,10 +72,10 @@
                                                                 <span class="text-danger">*</span>
                                                             </label>
                                                             <input type="text" id="role_name_arabic"
-                                                                class="form-control border-primary"
-                                                                placeholder="{{ __('dashboard_roles.role_name_arabic') }}"
-                                                                name="role[ar]"
-                                                                value="{{ old('role.ar', $role->getTranslation('role', 'ar')) }}">
+                                                                   class="form-control border-primary"
+                                                                   placeholder="{{ __('dashboard_roles.role_name_arabic') }}"
+                                                                   name="role[ar]"
+                                                                   value="{{ old('role.ar', $role->getTranslation('role', 'ar')) }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -101,10 +86,10 @@
                                                                 <span class="text-danger">*</span>
                                                             </label>
                                                             <input type="text" id="role_name_english"
-                                                                class="form-control border-primary"
-                                                                placeholder="{{ __('dashboard_roles.role_name_english') }}"
-                                                                name="role[en]"
-                                                                value="{{ old('role.en', $role->getTranslation('role', 'en')) }}">
+                                                                   class="form-control border-primary"
+                                                                   placeholder="{{ __('dashboard_roles.role_name_english') }}"
+                                                                   name="role[en]"
+                                                                   value="{{ old('role.en', $role->getTranslation('role', 'en')) }}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -118,25 +103,25 @@
                                                                 {{ __('dashboard_roles.permissions') }}
                                                             </label>
                                                             <div class="permissions-container"
-                                                                style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; padding: 20px; border: 2px solid #dee2e6;">
+                                                                 style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 10px; padding: 20px; border: 2px solid #dee2e6;">
 
                                                                 <div class="row">
                                                                     @foreach (config('permissions') as $key => $value)
                                                                         <div class="col-md-4 mb-3">
                                                                             <div class="permission-item"
-                                                                                style="background: #fff; border-radius: 8px; padding: 15px; border: 2px solid #e9ecef; transition: all 0.3s ease;">
+                                                                                 style="background: #fff; border-radius: 8px; padding: 15px; border: 2px solid #e9ecef; transition: all 0.3s ease;">
                                                                                 <div class="custom-control custom-checkbox">
                                                                                     <input type="checkbox"
-                                                                                        class="custom-control-input"
-                                                                                        id="permissions.{{ $key }}"
-                                                                                        name="permissions[]"
-                                                                                        value="{{ $key }}"
-                                                                                        onchange="togglePermission(this)"
+                                                                                           class="custom-control-input"
+                                                                                           id="permissions.{{ $key }}"
+                                                                                           name="permissions[]"
+                                                                                           value="{{ $key }}"
+                                                                                           onchange="togglePermission(this)"
                                                                                         {{ in_array($key, old('permissions', $role->permissions)) ? 'checked' : '' }}>
 
                                                                                     <label class="custom-control-label"
-                                                                                        for="permissions.{{ $key }}"
-                                                                                        style="font-weight: 600; color: #495057;">
+                                                                                           for="permissions.{{ $key }}"
+                                                                                           style="font-weight: 600; color: #495057;">
                                                                                         {{ __('permissions.' . $key) }}
                                                                                     </label>
                                                                                 </div>
@@ -146,11 +131,11 @@
                                                                 </div>
 
                                                                 @error('permissions')
-                                                                    <div class="alert alert-danger mt-3"
-                                                                        style="border-radius: 8px;">
-                                                                        <i class="la la-exclamation-triangle"></i>
-                                                                        {{ $message }}
-                                                                    </div>
+                                                                <div class="alert alert-danger mt-3"
+                                                                     style="border-radius: 8px;">
+                                                                    <i class="la la-exclamation-triangle"></i>
+                                                                    {{ $message }}
+                                                                </div>
                                                                 @enderror
                                                             </div>
                                                         </div>
@@ -204,7 +189,7 @@
 
         // Function to apply green style to checked checkboxes without triggering toggle
         function applyCheckedStyles() {
-            document.querySelectorAll('.permission-item').forEach(function(item) {
+            document.querySelectorAll('.permission-item').forEach(function (item) {
                 const checkbox = item.querySelector('input[type="checkbox"]');
                 if (checkbox && checkbox.checked) {
                     // Apply green style without triggering toggle function
@@ -226,18 +211,18 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Apply styles to all checked checkboxes
             applyCheckedStyles();
         });
 
         // Apply styles when page is fully loaded (including after form submission with errors)
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             applyCheckedStyles();
         });
 
         // Apply styles after a short delay to ensure all elements are rendered
-        setTimeout(function() {
+        setTimeout(function () {
             applyCheckedStyles();
         }, 100);
     </script>

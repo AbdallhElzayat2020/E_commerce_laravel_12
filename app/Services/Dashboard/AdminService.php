@@ -43,12 +43,7 @@ class AdminService
             abort(404, 'Admin not found');
         }
 
-        $admin = $this->adminRepository->updateAdmin($data, $admin);
-        if (!$admin->save()) {
-            return false;
-        }
-
-        return $admin;
+        return $this->adminRepository->updateAdmin($data, $admin);
     }
 
     public function destroy($id)

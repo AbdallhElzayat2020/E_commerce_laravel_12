@@ -42,7 +42,6 @@ class AdminController extends Controller
             return redirect()->back()->with('error', __('messages.error'));
         }
         return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
-
     }
 
 
@@ -67,15 +66,22 @@ class AdminController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(AdminRequest $request, string $id)
     {
-        $data = $request->only(['name', 'email', 'password', 'role_id', 'status']);
-
-        $admin = $this->adminService->updateAdmin($data, $id);
-
+        $admin = $this->adminService->getAdmin($id);
         if (!$admin) {
-            return redirect()->back()->with('error', __('messages.error'));
+            return redirect()->back()->with('error', __('messages.not_found'));
         }
+
+        // Only include password in data if it's provided
+        $data = $request->only(['name', 'email', 'role_id', 'status']);
+
+        // Hash and include password only if provided
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $this->adminService->updateAdmin($data, $id);
 
         return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
     }
@@ -94,7 +100,7 @@ class AdminController extends Controller
     {
         $admin = $this->adminService->getAdmin($id);
         if (!$admin) {
-            abort(404, __('MESSAGES.NOT_FOUND'));
+            abort(404, __('messages.not_found'));
         }
         if ($admin->status == 'active') {
             $admin->update([

@@ -14,4 +14,13 @@ return [
     'created_at' => 'Created At',
     'change_status' => 'Change Status',
     'search' => 'Search',
+    'password' => 'Password',
+    'confirm_password' => 'Confirm Password',
+    'leave_blank_to_keep_current' => 'Leave blank to keep current password',
+    'password_change_notice' => 'Note: Changing the password will log out this admin from all other devices for security.',
+    'admin_updated_with_logout' => 'Admin updated successfully. The admin has been logged out from all other devices due to password change.',
+    'password_mismatch' => 'Password and confirmation do not match!',
+    'password_too_short' => 'Password must be at least 8 characters long!',
+    'confirm_password_change' => 'Are you sure you want to change the password? This will log out the admin from all other devices.',
+    'password_will_change' => 'Password will be changed - admin will be logged out from other devices',
 ];

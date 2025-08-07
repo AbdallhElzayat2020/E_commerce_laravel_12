@@ -3,7 +3,7 @@
 namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class AdminRequest extends FormRequest
 {
@@ -20,16 +20,36 @@ class AdminRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
+
     public function rules(): array
     {
-        $id = Auth::guard('admin')->user()->id;
-        return [
-            'name' => ['required', 'min:2', 'max:255', 'string'],
-            'email' => ['required', 'email', 'max:255', 'unique:admins,email,' . $id],
-            'password' => ['required', 'min:8', 'max:255', 'confirmed'],
-            'password_confirmation' => ['required', 'max:255'],
+        $admin_id = $this->route('admin');
+        $isUpdate = $this->isMethod('PUT') || $this->isMethod('PATCH');
+
+        $rules = [
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'status' => ['sometimes', 'required', 'in:active,inactive'],
             'role_id' => ['required', 'exists:roles,id'],
-            'status' => ['required', 'in:active,inactive'],
         ];
+
+        if ($isUpdate && $admin_id) {
+            $rules['email'] = [
+                'required',
+                'email',
+                'max:150',
+                Rule::unique('admins', 'email')->ignore($admin_id)
+            ];
+        } else {
+            $rules['email'] = ['required', 'email', 'max:150', 'unique:admins,email'];
+        }
+
+        if ($isUpdate) {
+            $rules['password'] = ['nullable', 'string', 'min:8', 'confirmed', 'max:50'];
+        } else {
+            $rules['password'] = ['required', 'string', 'min:8', 'confirmed', 'max:50'];
+        }
+
+        return $rules;
     }
+
 }
