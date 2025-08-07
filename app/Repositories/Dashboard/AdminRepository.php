@@ -33,9 +33,10 @@ class AdminRepository
         return $admin->delete();
     }
 
-    public function changeStatus( $status)
+    public function changeStatus($status, $admin)
     {
-        $this->getAdmin($id);
+        $admin = $this->getAdmin($admin);
+
         return $admin->update(['status' => $status]);
     }
 

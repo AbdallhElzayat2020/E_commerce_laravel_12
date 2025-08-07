@@ -9,7 +9,7 @@ use App\Services\Dashboard\AdminService;
 use App\Services\Dashboard\RoleService;
 use Illuminate\Http\Request;
 
-class AdminsController extends Controller
+class AdminController extends Controller
 {
 
     protected $adminService, $RoleServices;
@@ -24,9 +24,9 @@ class AdminsController extends Controller
     public function index()
     {
         $admins = $this->adminService->getAdmins();
+
         return view('dashboard.admins.index', compact('admins'));
     }
-
 
     public function create()
     {
@@ -50,7 +50,7 @@ class AdminsController extends Controller
     {
         $admin = $this->adminService->getAdmin($id);
         if (!$admin) {
-            return redirect()->back()->with('error', __('messages.not_found'));
+            abort(404, __('messages.not_found'));
         }
         return view('dashboard.admins.show', compact('admin'));
     }
@@ -59,7 +59,7 @@ class AdminsController extends Controller
     {
         $admin = $this->adminService->getAdmin($id);
         if (!$admin) {
-            return redirect()->back()->with('error', __('messages.not_found'));
+            return redirect()->back()->with('error', __('messages.error'));
         }
 
         $roles = $this->RoleServices->getRoles();

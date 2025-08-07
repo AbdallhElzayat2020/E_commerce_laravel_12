@@ -95,8 +95,8 @@
                                                        class="btn btn-primary mx-1" title="{{ __('tables.edit') }}">
                                                         <i class="la la-edit"></i>
                                                     </a>
-                                                    <a style="font-size: 18px!important;" href="#" data-toggle="modal" data-target="#delete_admin{{ $admin->id }}" class="btn btn-danger mx-1"
-                                                       title="{{ __('tables.delete') }}">
+                                                    <a style="font-size: 18px!important;" href="#" data-toggle="modal"
+                                                       data-target="#delete_admin{{ $admin->id }}" class="btn btn-danger mx-1" title="{{ __('tables.delete') }}">
                                                         <i class="la la-trash"></i>
                                                     </a>
                                                     <a href="#" data-toggle="modal" data-target="#change_status_{{ $admin->id }}">

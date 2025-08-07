@@ -6,7 +6,7 @@ use App\Http\Controllers\Dashboard\RoleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
-use App\Http\Controllers\Dashboard\AdminsController;
+use App\Http\Controllers\Dashboard\AdminController;
 
 Route::group(
     [
@@ -61,8 +61,8 @@ Route::group(
         });
         #################################### Admins Routes ####################################
         Route::group(['middleware' => 'can:admins'], function () {
-            Route::resource('admins', AdminsController::class);
-            Route::post('admins/block/status/{id}', [AdminsController::class, 'changeStatus'])->name('admins.change-status');
+            Route::resource('admins', AdminController::class);
+            Route::post('admins/block/status/{id}', [AdminController::class, 'changeStatus'])->name('admins.change-status');
 
         });
 
