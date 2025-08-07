@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminSeeder extends Seeder
 {
@@ -14,6 +15,8 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+
+        DB::table('admins')->truncate();
         $first_role_id = Role::first()->id;
 
         Admin::updateOrCreate([

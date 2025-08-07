@@ -73,7 +73,6 @@ class AdminController extends Controller
             return redirect()->back()->with('error', __('messages.not_found'));
         }
 
-        // Only include password in data if it's provided
         $data = $request->only(['name', 'email', 'role_id', 'status']);
 
         // Hash and include password only if provided
@@ -85,7 +84,6 @@ class AdminController extends Controller
 
         return redirect()->route('dashboard.admins.index')->with('success', __('messages.success'));
     }
-
 
     public function destroy($id)
     {
