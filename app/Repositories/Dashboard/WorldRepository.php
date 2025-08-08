@@ -13,26 +13,24 @@ class WorldRepository
         return Country::select('id', 'name', 'phone_code', 'is_active')->get();
     }
 
+    public function getGovernorateById($id)
+    {
+        return Governorate::find($id);
+    }
+
+    public function getCountryById($id)
+    {
+        return Country::find($id);
+    }
+
     public function getAllCities($governorate)
     {
         return $governorate->cities()->get();
     }
 
-    public function getgovernorateById($id)
-    {
-        return Governorate::find($id);
-    }
-
     public function getAllGovernorate($country)
     {
-        $governorates = $country->governorates()->get();
-        return Governorate::select('name', 'id', 'country_id');
-    }
-
-
-    public function getCountryById($id)
-    {
-        return Country::find($id);
+        return $country->governorates()->get();
     }
 
     public function changeStatus($country)

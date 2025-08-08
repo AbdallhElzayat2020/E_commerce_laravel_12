@@ -34,7 +34,6 @@ class WorldService
 
     public function getAllCountries()
     {
-
         return $this->worldRepository->getAllCountries();
     }
 
@@ -54,11 +53,6 @@ class WorldService
     public function changeStatus($country_id)
     {
         $country = $this->getCountryById($country_id);
-        $country = $this->worldRepository->changeStatus($country);
-
-        if (!$country) {
-            abort(404, 'Failed to change status');
-        }
-        return true;
+        return $this->worldRepository->changeStatus($country);
     }
 }

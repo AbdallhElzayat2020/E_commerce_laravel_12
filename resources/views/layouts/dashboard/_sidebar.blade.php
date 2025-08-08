@@ -3,10 +3,10 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" nav-item">
                 <a href="index.html"><i class="la la-home">
-                     </i>
-                     <span class="menu-title" data-i18n="nav.dash.main">Dashboard</span>
-                     <span class="badge badge badge-info badge-pill float-right mr-2">3</span>
-                    </a>
+                    </i>
+                    <span class="menu-title" data-i18n="nav.dash.main">Dashboard</span>
+                    <span class="badge badge badge-info badge-pill float-right mr-2">3</span>
+                </a>
                 <ul class="menu-content">
                     <li class="active"><a class="menu-item" href="dashboard-ecommerce.html" data-i18n="nav.dash.ecommerce">eCommerce</a>
                     </li>
@@ -44,6 +44,16 @@
                     <li><a class="menu-item" href="{{ route('dashboard.admins.index') }}" data-i18n="nav.page_layouts.1_column">{{__('admins.admins')}}</a></li>
                     <li><a class="menu-item" href="{{ route('dashboard.admins.create') }}" data-i18n="nav.page_layouts.1_column">{{__('admins.create_admin')}}</a></li>
 
+                </ul>
+            </li>
+
+            <li class=" nav-item">
+                <a href="#">
+                    <i class="la la-columns"></i>
+                    <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('world.title')}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li><a class="menu-item" href="" data-i18n="nav.page_layouts.1_column">{{__('world.title')}}</a></li>
                 </ul>
             </li>
 

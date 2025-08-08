@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class WorldController extends Controller
 {
 
-    protected $worldService;
+    protected WorldService $worldService;
 
     public function __construct(WorldService $worldService)
     {
@@ -32,9 +32,7 @@ class WorldController extends Controller
     {
         $cities = $this->worldService->getAllCities($id);
         return view('dashboard.world.cities', compact('cities'));
-
     }
-
 
     public function changeStatus($country_id)
     {

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Translatable\HasTranslations;
 
 class Country extends Model
@@ -16,7 +17,7 @@ class Country extends Model
 
     public $timestamps = false;
 
-    public function governorates()
+    public function governorates(): HasMany
     {
         return $this->hasMany(Governorate::class, 'country_id');
     }
