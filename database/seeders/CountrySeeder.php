@@ -17,88 +17,57 @@ class CountrySeeder extends Seeder
 //        DB::table('countries')->truncate();
         $countries = [
             ['id' => 1,
-                'name' => [
-                    'en' => 'Egypt',
-                    'ar' => 'مصر',
-                ],
+                'name' => ['en' => 'Egypt', 'ar' => 'مصر',],
                 'phone_code' => '20',
             ],
             ['id' => 2,
-                'name' => [
-                    'en' => 'Saudi Arabia',
-                    'ar' => 'المملكة العربية السعودية',
-                ],
+                'name' => ['en' => 'Saudi Arabia', 'ar' => 'المملكة العربية السعودية'],
                 'phone_code' => '966',
             ],
             ['id' => 3,
-                'name' => [
-                    'en' => 'United Arab Emirates',
-                    'ar' => 'الإمارات العربية المتحدة',
-                ],
+                'name' => ['en' => 'United Arab Emirates', 'ar' => 'الإمارات العربية المتحدة'],
                 'phone_code' => '971',
             ],
             [
                 'id' => 4,
-                'name' => [
-                    'en' => 'Kuwait',
-                    'ar' => 'الكويت',
-                ],
+                'name' => ['en' => 'Kuwait', 'ar' => 'الكويت'],
                 'phone_code' => '965',
             ],
             [
                 'id' => 5,
-                'name' => [
-                    'en' => 'Qatar',
-                    'ar' => 'قطر',
-                ],
+                'name' => ['en' => 'Qatar', 'ar' => 'قطر'],
                 'phone_code' => '974',
             ],
             [
                 'id' => 6,
-                'name' => [
-                    'en' => 'Bahrain',
-                    'ar' => 'البحرين',
-                ],
+                'name' => ['en' => 'Bahrain', 'ar' => 'البحرين'],
                 'phone_code' => '973',
             ],
             [
                 'id' => 7,
-                'name' => [
-                    'en' => 'Oman',
-                    'ar' => 'عمان',
-                ],
+                'name' => ['en' => 'Oman', 'ar' => 'عمان'],
                 'phone_code' => '968',
             ],
             [
                 'id' => 8,
                 'name' => [
-                    'en' => 'Jordan',
-                    'ar' => 'الأردن',
-                ],
+                    'en' => 'Jordan', 'ar' => 'الأردن'],
                 'phone_code' => '962',
             ],
             [
                 'id' => 9,
-                'name' => [
-                    'en' => 'Iraq',
-                    'ar' => 'العراق',
-                ],
+                'name' => ['en' => 'Iraq', 'ar' => 'العراق'],
                 'phone_code' => '964',
             ],
             [
                 'id' => 10,
-                'name' => [
-                    'en' => 'Syria',
-                    'ar' => 'سوريا',
-                ],
+                'name' => ['en' => 'Syria', 'ar' => 'سوريا'],
                 'phone_code' => '963',
             ],
             [
                 'id' => 11,
                 'name' => [
-                    'en' => 'Lebanon',
-                    'ar' => 'لبنان',
-                ],
+                    'en' => 'Lebanon', 'ar' => 'لبنان'],
                 'phone_code' => '961',
             ]
         ];

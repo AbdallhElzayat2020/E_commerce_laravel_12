@@ -23,17 +23,16 @@ class WorldService
         return $country;
     }
 
-    public function getGovernorateById()
+    public function getGovernorateById($id)
     {
-        $governorate = $this->worldRepository->getgovernorateById();
+        $governorate = $this->worldRepository->getGovernorateById($id);
         if (!$governorate) {
             abort(404, 'Governorate not found');
         }
         return $governorate;
     }
 
-
-    public function getAllCountries($id)
+    public function getAllCountries()
     {
 
         return $this->worldRepository->getAllCountries();
@@ -42,13 +41,13 @@ class WorldService
 
     public function getAllGovernorate($id)
     {
-        $country = self::getCountryById($id);
+        $country = $this->getCountryById($id);
         return $this->worldRepository->getAllGovernorate($country);
     }
 
     public function getAllCities($governorate_id)
     {
-        $governorate = self::getGovernorateById($governorate_id);
+        $governorate = $this->getGovernorateById($governorate_id);
         return $this->worldRepository->getAllCities($governorate);
     }
 

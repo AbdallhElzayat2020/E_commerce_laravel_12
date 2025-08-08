@@ -14,11 +14,11 @@ class GovernorateSeeder extends Seeder
      */
     public function run(): void
     {
+
 //        DB::table('governorates')->truncate();
 
         $governorates = [
-
-// ======== Start: Egypt Governorates ========
+            // ======== Start: Egypt Governorates ========
             ['name' => ['en' => 'Cairo', 'ar' => 'القاهرة'], 'country_id' => 1],
             ['name' => ['en' => 'Giza', 'ar' => 'الجيزة'], 'country_id' => 1],
             ['name' => ['en' => 'Alexandria', 'ar' => 'الإسكندرية'], 'country_id' => 1],
@@ -46,9 +46,9 @@ class GovernorateSeeder extends Seeder
             ['name' => ['en' => 'Luxor', 'ar' => 'الأقصر'], 'country_id' => 1],
             ['name' => ['en' => 'Qena', 'ar' => 'قنا'], 'country_id' => 1],
             ['name' => ['en' => 'Sohag', 'ar' => 'سوهاج'], 'country_id' => 1],
-// ======== End: Egypt Governorates ========
+            // ======== End: Egypt Governorates ========
 
-// ======== Start: Saudi Arabia Regions ========
+            // ======== Start: Saudi Arabia Regions ========
             ['name' => ['en' => 'Riyadh', 'ar' => 'الرياض'], 'country_id' => 2],
             ['name' => ['en' => 'Makkah', 'ar' => 'مكة المكرمة'], 'country_id' => 2],
             ['name' => ['en' => 'Medina', 'ar' => 'المدينة المنورة'], 'country_id' => 2],
@@ -86,6 +86,7 @@ class GovernorateSeeder extends Seeder
             ['name' => ['en' => 'Al Dhahirah', 'ar' => 'الظاهرة'], 'country_id' => 4],
             ['name' => ['en' => 'Al Wusta', 'ar' => 'الوسطى'], 'country_id' => 4],
             // ======== End: Oman Governorates ========
+
         ];
 
         foreach ($governorates as $governorate) {

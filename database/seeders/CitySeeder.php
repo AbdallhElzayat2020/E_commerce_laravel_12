@@ -20,73 +20,43 @@ class CitySeeder extends Seeder
         $cities = [
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'القاهرة',
-                    'en' => 'Cairo',
-                ],
+                'name' => ['ar' => 'القاهرة', 'en' => 'Cairo'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'الجيزة',
-                    'en' => 'Giza',
-                ],
+                'name' => ['ar' => 'الجيزة', 'en' => 'Giza'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'الشرقية',
-                    'en' => 'Sharqia',
-                ],
+                'name' => ['ar' => 'الشرقية', 'en' => 'Sharqia'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'الدقهلية',
-                    'en' => 'Dakahlia',
-                ],
+                'name' => ['ar' => 'الدقهلية', 'en' => 'Dakahlia'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'الإسكندرية',
-                    'en' => 'Alexandria',
-                ],
+                'name' => ['ar' => 'الإسكندرية', 'en' => 'Alexandria'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'المنصورة',
-                    'en' => 'Mansoura',
-                ],
+                'name' => ['ar' => 'المنصورة', 'en' => 'Mansoura'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'المنيا',
-                    'en' => 'Minya',
-                ],
+                'name' => ['ar' => 'المنيا', 'en' => 'Minya'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'أسيوط',
-                    'en' => 'Assiut',
-                ],
+                'name' => ['ar' => 'أسيوط', 'en' => 'Assiut'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'سوهاج',
-                    'en' => 'Sohag',
-                ],
+                'name' => ['ar' => 'سوهاج', 'en' => 'Sohag'],
             ],
             [
                 'governorate_id' => 1,
-                'name' => [
-                    'ar' => 'قنا',
-                    'en' => 'Qena',
-                ],
+                'name' => ['ar' => 'قنا', 'en' => 'Qena'],
             ],
 
         ];
