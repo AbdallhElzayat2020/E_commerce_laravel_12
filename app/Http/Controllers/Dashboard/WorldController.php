@@ -16,7 +16,7 @@ class WorldController extends Controller
         $this->worldService = $worldService;
     }
 
-    public function getAllCountries()
+    public function index()
     {
         $countries = $this->worldService->getAllCountries();
         return view('dashboard.world.countries', compact('countries'));

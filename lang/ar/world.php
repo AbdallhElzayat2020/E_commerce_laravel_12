@@ -10,6 +10,9 @@ return [
     'governorate' => 'المحافظة',
     'city' => 'المدينة',
     'country_name' => 'اسم الدولة',
+    'num_of_governorates' => 'عدد المحافظات',
+
+    'status' => 'الحالة',
     'governorate_name' => 'اسم المحافظة',
     'city_name' => 'اسم المدينة',
     'phone_code' => 'رمز الهاتف',

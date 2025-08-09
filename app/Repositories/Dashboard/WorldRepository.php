@@ -10,7 +10,7 @@ class WorldRepository
 {
     public function getAllCountries()
     {
-        return Country::select('id', 'name', 'phone_code', 'is_active')->get();
+        return Country::select('id', 'name', 'phone_code', 'is_active')->paginate(6);
     }
 
     public function getGovernorateById($id)
@@ -36,7 +36,7 @@ class WorldRepository
     public function changeStatus($country)
     {
         return $country->update([
-            'status' => $country->status == 1 ? 0 : 1,
+            'is_active' => $country->status == 1 ? 0 : 1,
         ]);
     }
 }

@@ -53,7 +53,11 @@
                     <span class="menu-title" data-i18n="nav.page_layouts.main">{{__('world.title')}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li><a class="menu-item" href="" data-i18n="nav.page_layouts.1_column">{{__('world.title')}}</a></li>
+                    <li>
+                        <a class="menu-item" href="{{ route('dashboard.countries-management.index') }}" data-i18n="nav.page_layouts.1_column">
+                            {{__('world.title')}}
+                        </a>
+                    </li>
                 </ul>
             </li>
 

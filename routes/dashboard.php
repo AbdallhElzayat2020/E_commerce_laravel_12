@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\HomeController;
 use App\Http\Controllers\Dashboard\Auth\ResetPasswordController;
 use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\Dashboard\WorldController;
 
 Route::group(
     [
@@ -63,8 +64,9 @@ Route::group(
         Route::group(['middleware' => 'can:admins'], function () {
             Route::resource('admins', AdminController::class);
             Route::post('admins/block/status/{id}', [AdminController::class, 'changeStatus'])->name('admins.change-status');
-
         });
+        #################################### World and Countries-cites Routes ####################################
+        Route::resource('countries-management', WorldController::class);
 
     });
 
